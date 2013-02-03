@@ -15,12 +15,13 @@ def multinormal(params):
 	
 	for (mu, sigma) in params:
 		k = 1.0/(pow(2*math.pi, 0.5)*sigma)
-		x = np.arange(mu-5, mu+5, 0.2)
+		x = np.arange(mu-5, mu+5, 0.1)
 		y = [k*pow(math.e, -(xi-mu)**2/(2.0*sigma**2)) for xi in x]
-		plt.plot(x, y, label="mu=%f, sigma=%f" % (mu, sigma))
+		plt.plot(x, y, label=r"$\mu=%0.2f, \sigma=%0.2f$" % (mu, sigma))
 
 	plt.legend()
 	plt.show()
 
 if __name__ == '__main__':
-	normal(0, 1)
+#	normal(0, 1)
+	multinormal([(0, 1), (0, 0.5), (0, 2), (1, 1), (-1, 1)])
